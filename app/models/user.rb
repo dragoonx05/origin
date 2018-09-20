@@ -1,5 +1,3 @@
-class User < ApplicationRecord
-  include Clearance::User
-
+class User < ActiveRecord::Base
   include Clearance::User
 end
