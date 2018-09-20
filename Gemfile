@@ -33,6 +33,9 @@ gem 'clearance'
 # Use Figaro
 gem 'figaro'
 
+# Use OmniAuth Google OAuth2
+gem 'omniauth-google-oauth2'
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
