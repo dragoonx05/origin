@@ -5,22 +5,22 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-user = {}
-user["password"] = '123456'
+# user = {}
+# user["password"] = '123456'
 
-ActiveRecord::Base.transaction do
-    10.times do 
-        user['first_name'] = Faker::Name.first_name
-        user['last_name'] = Faker::Name.last_name
-        user['email'] = Faker::Internet.email
+# ActiveRecord::Base.transaction do
+#     10.times do 
+#         user['first_name'] = Faker::Name.first_name
+#         user['last_name'] = Faker::Name.last_name
+#         user['email'] = Faker::Internet.email
         
-        User.create(user)
-    end
-end
+#         User.create(user)
+#     end
+# end
 
 listing = {}
 uids = []
-User.all.each { |u|  uids << u.id}
+User.all.each { |u|  uids << u.id }
 
 ActiveRecord::Base.transaction do
     30.times do 
@@ -37,5 +37,7 @@ ActiveRecord::Base.transaction do
         listing['bathroom_num'] = rand(1..2)
 
         listing['user_id'] = uids.sample
+
+        Listing.create(listing)
     end
 end
