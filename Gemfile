@@ -36,6 +36,9 @@ gem 'figaro'
 # Use OmniAuth Google OAuth2
 gem 'omniauth-google-oauth2'
 
+# Use Faker for seed
+gem 'faker'
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
