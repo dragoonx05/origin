@@ -4,12 +4,15 @@
 <p><%= link_to "New Listing", new_listing_path %></p>
 
 <div>
-    <% @listing.each do |listing| %>
+    <% @listing.order("rating desc").each do |listing| %>
         <%= listing.name %></br>
         <ul>
             <li><%= listing.description %></li>
             <li>RM <%= listing.price %>/night</li>
             <li><%= listing.address %></li>
+            <li><%= listing.rating %></li>
         </ul>
     <% end %>
 </div>
+
+<%= paginate @listing %>

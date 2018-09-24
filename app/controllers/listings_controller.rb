@@ -1,10 +1,16 @@
 class ListingsController < ApplicationController
 
     def index
-        @listing = Listing.all
+        @listing = Listing.page(params[:page]).per(10)
     end
 
     def new
+        # authorization code
+        if user.customer?
+            flash[:notice] = "Sorry. You are not allowed to perform this action."
+            return redirect_to listing_path, notice: "Sorry. You do not have the permission to verify a property."
+            end
+        end
     end
 
     def show
@@ -17,6 +23,7 @@ class ListingsController < ApplicationController
         @listing.save
         redirect_to listings_path
     end
+    
 
     private
     def listing_params

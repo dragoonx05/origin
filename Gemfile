@@ -39,6 +39,9 @@ gem 'omniauth-google-oauth2'
 # Use Faker for seed
 gem 'faker'
 
+# Use kaminari paginator
+gem 'kaminari'
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
