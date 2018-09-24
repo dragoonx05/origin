@@ -1,0 +1,9 @@
+<h1>Edit Listing</h1>
+<p>Edit your listing</p>
+
+<%= form_with model: @listing, scope: :listings, local: true do |form| %>
+    <%= render partial: '/listings/form', object:form %>
+    <div class="submit-field">
+        <%= form.submit %>
+    </div>
+<% end %>

@@ -6,11 +6,10 @@ class ListingsController < ApplicationController
 
     def new
         # authorization code
-        if user.customer?
-            flash[:notice] = "Sorry. You are not allowed to perform this action."
-            return redirect_to listing_path, notice: "Sorry. You do not have the permission to verify a property."
-            end
-        end
+        # if user.customer?
+        #     flash[:notice] = "Sorry. You are not allowed to perform this action."
+        #     return redirect_to listing_path, notice: "Sorry. You do not have the permission to verify a property."
+        # end
     end
 
     def show
@@ -24,6 +23,16 @@ class ListingsController < ApplicationController
         redirect_to listings_path
     end
     
+    def edit
+        @listing = Listing.find(params[:id])
+    end
+
+    def update
+        listing = Listing.find(params[:id])
+        listing.update(listing_params)
+        flash[:sucess] = "Successfully edited listing."
+        redirect_to listing_path(listing)
+    end
 
     private
     def listing_params
