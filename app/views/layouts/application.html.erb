@@ -9,6 +9,7 @@
     <% if signed_in? -%>
       Welcome, <%= current_user.first_name %>!
       <%= button_to t(".sign_out"), sign_out_path, method: :delete %>
+      <%= link_to "Listings", listings_path %>
     <% else -%>
       <%= link_to t(".sign_in"), sign_in_path %>
     <% end -%>

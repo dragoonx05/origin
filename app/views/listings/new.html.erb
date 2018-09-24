@@ -1,0 +1,9 @@
+<h1>Create Listing</h1>
+<p>Fill in the form!</p>
+
+<%= form_with scope: :listings, url: listings_path, local: true do |form| %>
+    <%= render partial: '/listings/form', object:form %>
+    <div class="submit-field">
+        <%= form.submit %>
+    </div>
+<% end %>
