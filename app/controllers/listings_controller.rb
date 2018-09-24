@@ -34,6 +34,12 @@ class ListingsController < ApplicationController
         redirect_to listing_path(listing)
     end
 
+    def delete
+        listing = Listing.find(params[:id])
+        listing.destroy
+        redirect_to listings_path
+    end
+
     private
     def listing_params
         params.require(:listings).permit(:name, :description, :address, :price, :bed_room_type, :bed_room_num, :bed_type, :bed_num, :bathroom_type, :bathroom_num)

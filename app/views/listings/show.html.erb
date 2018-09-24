@@ -14,6 +14,9 @@
         <li><%= @listing.bed_num %></li>
         <li><%= @listing.bathroom_type %></li>
         <li><%= @listing.bathroom_num %></li>
-        <%= link_to "Edit Listing", edit_listing_path(@listing.id) %></br>
+        <% if @listing.user_id == current_user.id %>
+            <%= link_to "Edit Listing", edit_listing_path(@listing.id) %></br>
+            <%= link_to "Delete Listing", listing_path(@listing.id), method: :delete, data: { confirm: "Are you sure?" } %></br>
+        <% end %>
     </ul>
 </div>
