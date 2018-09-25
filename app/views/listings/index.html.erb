@@ -13,6 +13,7 @@
             <li>Verified: <%= listing.verification %></li>
             <% if listing.user_id == current_user.id %>
                 <%= link_to "Edit Listing", edit_listing_path(listing.id) %></br>
+                <%= link_to "Reserve this", %></br>
             <% end %>
         </ul>
     <% end %>
