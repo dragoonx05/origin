@@ -16,8 +16,11 @@ Rails.application.routes.draw do
 
   get "/auth/:provider/callback" => "sessions#create_from_omniauth"
   
-  resources :listings
-  resources :reservations
+  resources :listings do 
+    resources :reservations
+  end
+
+
 
   # get "/listings" => "listings#index"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

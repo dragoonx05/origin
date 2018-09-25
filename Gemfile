@@ -45,6 +45,13 @@ gem 'kaminari'
 # Use Carrier Wave Uploader
 gem 'carrierwave'
 
+# Required for bootstrap
+gem 'bootstrap'
+gem 'jquery-rails'
+
+# jQuery datepicker?
+
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
