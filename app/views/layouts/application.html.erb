@@ -7,7 +7,7 @@
 <body>
   <div id="header">
     <% if signed_in? -%>
-      Welcome, <%= current_user.first_name %>!
+      Welcome, <%= link_to current_user.first_name, user_path(current_user.id) %>!
       <%= button_to t(".sign_out"), sign_out_path, method: :delete %>
       <%= link_to "Listings", listings_path %>
     <% else -%>

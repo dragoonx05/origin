@@ -42,6 +42,9 @@ gem 'faker'
 # Use kaminari paginator
 gem 'kaminari'
 
+# Use Carrier Wave Uploader
+gem 'carrierwave'
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 

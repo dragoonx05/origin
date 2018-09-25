@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   include Clearance::User
+  mount_uploader :avatar, AvatarUploader 
   enum status: [:customer, :host, :moderator, :superadmin]
   # put your validation here
   has_many :authentications, dependent: :destroy

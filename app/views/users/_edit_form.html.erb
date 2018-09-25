@@ -1,0 +1,9 @@
+<div class="file-field">
+    <%= edit_form.label :upload_profile_image %>
+    <%= edit_form.file_field :avatar %>
+</div>
+
+<div class="field">
+    <%= edit_form.label :role %>
+    <%= edit_form.select :role, [' ', 'customer', 'host', 'moderator', 'superadmin'] %>
+</div>

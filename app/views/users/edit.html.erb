@@ -1,0 +1,9 @@
+<h1>Edit User Details</h1>
+<p>Edit user details are here</p>
+
+<%= form_with model: @user,:url => user_path(@user), scope: :users, method: "patch" do |form| %>
+    <%= render partial: '/users/edit_form', object:form %>
+    <div class="submit-field">
+        <%= form.submit %>
+    </div>
+<% end %>

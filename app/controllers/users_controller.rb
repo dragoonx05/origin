@@ -1,5 +1,19 @@
 class UsersController < Clearance::UsersController
 
+  def edit
+    @user = User.find(params[:id])
+
+  end
+  
+  def update
+    byebug
+    user = User.find(params[:id])
+    user.avatar = params[:file]
+    user.update(params_update_user)
+    user.save
+    redirect_to user_path(user)
+  end
+
     private
     def user_from_params
     email = user_params.delete(:email)
@@ -13,6 +27,10 @@ class UsersController < Clearance::UsersController
       user.first_name = first_name
       user.last_name = last_name
     end
+  end
+
+  def params_update_user
+    params.require(:users).permit(:role, :avatar)
   end
 
 end
