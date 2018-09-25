@@ -5,8 +5,11 @@ class UsersController < Clearance::UsersController
 
   end
   
+  def show
+    @user = User.find(params[:id])
+  end
+
   def update
-    byebug
     user = User.find(params[:id])
     user.avatar = params[:file]
     user.update(params_update_user)
