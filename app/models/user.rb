@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   include Clearance::User
-
+  enum status: [:customer, :host, :moderator, :superadmin]
   # put your validation here
   has_many :authentications, dependent: :destroy
   has_many :listings

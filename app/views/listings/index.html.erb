@@ -10,6 +10,7 @@
             <li>RM <%= listing.price %>/night</li>
             <li>Address: <%= listing.address %></li>
             <li>Rating: <%= listing.rating %></li>
+            <li>Verified: <%= listing.verification %></li>
             <% if listing.user_id == current_user.id %>
                 <%= link_to "Edit Listing", edit_listing_path(listing.id) %></br>
             <% end %>
