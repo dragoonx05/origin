@@ -15,7 +15,6 @@ class ReservationsController < ApplicationController
         @reserve.listing_id = @listing.id
         @reserve.save
         redirect_to listing_path(@listing.id)
-
     end
 
     def update
