@@ -4,5 +4,6 @@
 <% if @user.id == current_user.id %>
     <%= link_to "Edit Details", edit_user_path(current_user.id) %>
 <% end %>
-
-<%= image_tag(@user.avatar_url) %>
+<div>
+    <%= image_tag(@user.avatar_url) %>
+</div>

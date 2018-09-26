@@ -13,8 +13,11 @@ class ReservationsController < ApplicationController
         @reserve = Reservation.new(booking_params)
         @reserve.user_id = current_user.id
         @reserve.listing_id = @listing.id
-        @reserve.save
-        redirect_to listing_path(@listing.id)
+        if @reserve.save == false
+            redirect_to root_path
+        else
+            redirect_to listing_path(@listing.id)
+        end
     end
 
     def update
