@@ -3,21 +3,15 @@
 
 <div>
     <strong><%= @listing.name %></strong></br>
-        <%= form_with model: @reservation, scope: :reservations, url:listing_reservations_path(@listing.id), local: true do |form| %>
-            <div>
-                <label for="start">Start</label>
-                <input type="date" id="start" name="reserve"
-                    value="2018-09-25"/>
-            </div>
+        <%= form_with model: @reservation, scope: :reservation, url: listing_reservations_path(@listing.id), local: true do |form| %>
+            <%= form.label :check_in %>
+            <%= form.date_field :booking_start, value: "2018-09-26" %>
 
-            <div>
-                <label for="end">End</label>
-                <input type="date" id="end" name="reserve"
-                    value="2018-07-29"/ >
-            </div>
-
+            <%= form.label :check_out %>
+            <%= form.date_field :booking_end, value: "2018-09-29" %>
+            
             <div class="submit-field">
-                <%= form.submit %>
+                <%= form.submit "Book Now" %>
             </div>
 
         <% end %>

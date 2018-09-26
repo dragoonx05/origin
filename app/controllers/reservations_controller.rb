@@ -9,15 +9,12 @@ class ReservationsController < ApplicationController
     end
 
     def create
-        @listing = Listing.find(params[:id])
-        @reserve = Reservation.where(listing_id: params[:id])
-        booking_date = #params
-        return_date = #params
-        if @reserve
-            unless @reserve.booking_start == " " && @reserve.booking_end == " " 
-                @reserve = Reserve.new(params)
-            end
-        end
+        @listing = Listing.find(params[:listing_id])
+        @reserve = Reservation.new(booking_params)
+        @reserve.user_id = current_user.id
+        @reserve.listing_id = @listing.id
+        @reserve.save
+        redirect_to listing_path(@listing.id)
 
     end
 
@@ -27,4 +24,8 @@ class ReservationsController < ApplicationController
     def delete
     end
 
+    private
+    def booking_params
+        params.require(:reservation).permit(:booking_start, :booking_end, :user_id)
+    end
 end
