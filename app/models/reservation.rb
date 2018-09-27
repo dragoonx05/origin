@@ -20,7 +20,6 @@ class Reservation < ApplicationRecord
     def check_overlap
         #compare (range_1).overlaps?(range_2)
         list = Reservation.where(listing_id: self.listing_id)
-        byebug
         list.each do |check|
             not_available = check.booking_start..check.booking_end
             if (self.booking_start..self.booking_end).overlaps?not_available
