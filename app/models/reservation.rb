@@ -5,6 +5,9 @@ class Reservation < ApplicationRecord
     validates :booking_start, presence: true
     validates :booking_end, presence: true
     validate :check_overlap
+    # check if check out date is earlier than check in date
+    # check if check out date is same day with check in date
+    # check if check in/out date is a back date
 
     before_create :cal_total_price
 
@@ -21,7 +24,7 @@ class Reservation < ApplicationRecord
         list.each do |check|
             not_available = check.booking_start..check.booking_end
             if (self.booking_start..self.booking_end).overlaps?not_available
-                errors.add(:Property, "Not available on the selected date. Please select other date range.")
+                self.errors.add(:Property, "Not available on the selected date. Please select other date range.")
                 break
             end
         end
