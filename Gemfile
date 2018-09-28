@@ -54,6 +54,9 @@ gem 'jquery-rails'
 # Braintree
 gem 'braintree'
 
+# Sidekiq job que manager
+gem 'sidekiq'
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
