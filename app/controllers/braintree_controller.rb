@@ -18,7 +18,8 @@ class BraintreeController < ApplicationController
       }
       )
       if result.success?
-      redirect_to listing_path(reservation.listing.id), :flash => { :success => "You've successfully booked #{reservation.listing.name}" }
+        ReservationMailer.booking_email(reservation).deliver_now
+        redirect_to listing_path(reservation.listing.id), :flash => { :success => "You've successfully booked #{reservation.listing.name}" }
     else
       redirect_to listing_path(reservation.listing.id), :flash => { :error => "Transaction failed. Please try again." }
     end
