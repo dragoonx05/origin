@@ -4,7 +4,7 @@ class ReservationMailer < ApplicationMailer
         @host = reservation.listing.user
         @listing = reservation.listing
 
-        mail(to: @customer.email, subject: "You've booked <%= @listing.name %>!")
+        mail(to: @customer.email, subject: "You've booked #{@listing.name}!")
         
     end
 end
