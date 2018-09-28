@@ -51,6 +51,8 @@ gem 'jquery-rails'
 
 # jQuery datepicker?
 
+# Braintree
+gem 'braintree'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+
   resources :passwords, controller: "clearance/passwords", only: [:create, :new]
   resource :session, controller: "clearance/sessions", only: [:create]
 
@@ -19,6 +20,9 @@ Rails.application.routes.draw do
   resources :listings do 
     resources :reservations
   end
+
+  get '/reservation/:reservation_id/braintree/new' => "braintree#new", as: "braintree_new"
+  post '/reservation/:reservation_id/braintree/checkout' => "braintree#checkout", as: "braintree_checkout"
 
 
 

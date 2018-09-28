@@ -17,8 +17,7 @@ class ReservationsController < ApplicationController
             redirect_to root_path
             flash[:error] = "Sorry, something went wrong."
         else
-            redirect_to listing_path(@listing.id)
-            flash[:success] = "You've successfully booked #{@listing.name}"
+            redirect_to braintree_new_path(@reserve)
         end
     end
 
