@@ -1,0 +1,37 @@
+<h1>Show Listing</h1>
+<p>All the details are here</p>
+
+<div>
+    <strong><%= @listing.name %></strong></br>
+        <%= form_with model: @reservation, scope: :reservation, url: listing_reservations_path(@listing.id), local: true do |form| %>
+            <%= form.label :check_in %>
+            <%= form.date_field :booking_start, value: "2018-09-26" %>
+
+            <%= form.label :check_out %>
+            <%= form.date_field :booking_end, value: "2018-09-29" %>
+            
+            <div class="submit-field">
+                <%= form.submit "Book Now" %>
+            </div>
+
+        <% end %>
+           
+        
+    <ul>
+        <li>Description: <%= @listing.description %></li>
+        <li>RM <%= @listing.price %>/night</li>
+        <li>Adress: <%= @listing.address %></li>
+        <li>Rating: <%= @listing.rating %></li>
+        <li>Room type: <%= @listing.bed_room_type %></li>
+        <li>Room number: <%= @listing.bed_room_num %></li>
+        <li>Bed type: <%= @listing.bed_type %></li>
+        <li>Bed number: <%= @listing.bed_num %></li>
+        <li>Bathroom type: <%= @listing.bathroom_type %></li>
+        <li>Bathroom number: <%= @listing.bathroom_num %></li>
+        <li>Verified: <%= @listing.verification %></li>
+        <% if @listing.user_id == current_user.id %>
+            <%= link_to "Edit Listing", edit_listing_path(@listing.id) %></br>
+            <%= link_to "Delete Listing", listing_path(@listing.id), method: :delete, data: { confirm: "Are you sure?" } %></br>
+        <% end %>
+    </ul>
+</div>

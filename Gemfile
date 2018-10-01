@@ -27,6 +27,39 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+# Use Clearance
+gem 'clearance'
+
+# Use Figaro
+gem 'figaro'
+
+# Use OmniAuth Google OAuth2
+gem 'omniauth-google-oauth2'
+
+# Use Faker for seed
+gem 'faker'
+
+# Use kaminari paginator
+gem 'kaminari'
+
+# Use Carrier Wave Uploader
+gem 'carrierwave'
+
+# Required for bootstrap
+gem 'bootstrap'
+gem 'jquery-rails'
+
+# jQuery datepicker?
+
+# Braintree
+gem 'braintree'
+
+# Sidekiq job que manager
+gem 'sidekiq'
+
+# use PG Search 
+gem 'pg_search'
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 

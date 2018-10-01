@@ -1,0 +1,9 @@
+<h1>Show User Details</h1>
+<p>All the user details are here</p>
+
+<% if @user.id == current_user.id %>
+    <%= link_to "Edit Details", edit_user_path(current_user.id) %>
+<% end %>
+<div>
+    <%= image_tag(@user.avatar_url) %>
+</div>
