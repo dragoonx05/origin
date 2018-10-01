@@ -1,7 +1,12 @@
 class ListingsController < ApplicationController
 
     def index
-        @listing = Listing.page(params[:page]).per(10)
+        @listings = Listing.where(nil)
+
+        @listings = @listings.price(params[:search][:price]) if params[:search] && params[:search][:price].present?
+        @listings = @listings.bathroom_num(params[:search][:bathroom_num]) if params[:search] && params[:search][:bathroom_num].present?
+        @listings = @listings.bathroom_type(params[:search][:bathroom_type]) if params[:search] && params[:search][:bathroom_type].present?
+        @listings = @listings.page(params[:page]).per(10) #pagination only 
     end
 
     def new
